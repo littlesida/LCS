@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Course</title>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/semantic.min.js"></script>
+    <link href="/css/semantic.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="ui inverted menu">
+        <a class="item" href="/home"><i class="home icon"></i>主页</a>
+        <a class="item" href = "/home/<%= sign.courseName %>">返回课程</a>
+        <a class="item" href="/home/<%= sign.courseName%>/<%= sign.signName %>">签到详情</a>
+        <a class="item" href = "/createSign?courseName=<%= sign.courseName%>">新建签到</a>
+        <div class="right menu">
+            <div class="item">
+                <div class="ui transparent inverted icon input">
+                    <i class="search icon"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <a class="item" href="/signout">退出</a>
+        </div>
+    </div>
+
+      <a class = "image ui segment  medium" href = "/sign?courseName=<%= sign.courseName%>&signName=<%= sign.signName%>"><img src="/sign/create_qrcode?text=http://192.168.199.90:3000/sign?courseName=<%= sign.courseName %>%26signName=<%= sign.signName %>%26st=<%= sign.st %>%26et=<%= sign.et %>"/></a>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/semantic.min.js"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
+    <script src="/js/dataTables.semanticui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/dataTables.semanticui.min.css">
+    <link href="/css/semantic.min.css" rel="stylesheet">
+  
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="ui inverted menu">
+        <a class="item" href="/home"><i class="home icon"></i>主页</a>
+        <a class="item" href="/home/<%= coursename%>">返回课程</a>
+        <a class="item" href="/home/<%= coursename%>/<%= signname %>">签到详情</a>
+        <a class="item" href = "/home/<%= coursename%>/<%= signname %>/qrcode" >查看二维码</a>
+        <a class="active item" href = "/home/<%= coursename%>/<%= signname %>/checkRemote" >查看远程签到</a>
+        
+        <div class="right menu">
+            <div class="item">
+                <div class="ui transparent inverted icon input">
+                    <i class="search icon"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <a class="item" href="/signout">退出</a>
+        </div>
+    </div>
+
+<div class="ui segment ">
+  <div class="ui grid">
+    <div class="four wide column">
+    </div>
+    <div class="eight wide column">
+    <table class="ui celled  table  segment center aligned eg" >
+      <thead>
+        <tr><th colspan="2">疑似远程签到同学 </th>
+        </tr>
+        <tr>
+          <th >学号</th>
+          <th >姓名</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% hadSigns.forEach(function (item) { %>
+          <tr>
+          <td ><%= item.id %></td>
+          <td ><%= item.name %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.eg').DataTable();
+} );
+</script>
+
+</html>
